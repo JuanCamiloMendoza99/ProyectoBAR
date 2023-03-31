@@ -1,0 +1,920 @@
+{{!-- =================================================
+Modal o Ventanas Emergentes - INICIO
+================================================= --}}
+
+{{#if user}}
+<!-- Modal Block Notas -->
+<div class="modal fade" data-backdrop="static" id="BlockNotas" tabindex="-1" role="dialog"
+    aria-labelledby="BlockNotasTitle" aria-hidden="true">
+    <div class="modal-dialog modal-full" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="BlockNotasTitle"><i class="fas fa-book-reader"></i> Block de Notas Auxiliar
+                </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-row">
+                    <div class="form-group col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                        {{!-- <textarea rows="33" class="form-control form-control-1" data-toggle="tooltip"
+                            data-placement="top" title="Block Auxiliar del Sistema     Mis Apuntes"
+                            placeholder="Mis apuntes auxiliares a esta gestión..."></textarea> --}}
+                        <div id="summernote-editor">
+
+                        </div> <!-- end summernote-inline-->
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- / Block Notas -->
+
+<!-- Modal Listado de VDNS Claro -->
+<div class="modal fade" data-backdrop="static" id="ListadoVDNS" tabindex="-1" role="dialog"
+    aria-labelledby="ListadoVDNSTitle" aria-hidden="true" style="height: 850px">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="ListadoVDNSTitle"><i class="fas fa-book-reader"></i> Listado de
+                    VDN´S<br><small>VDN y Area de Transferencias o Consulta</small></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                {{!-- Tabla Listado VDNS --}}
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover mb-0">
+                        <thead>
+                            <tr>
+                                <th>
+                                    <center>VDN</center>
+                                </th>
+                                <th>
+                                    <center>Area de Transferencía o Consulta</center>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>414907</td>
+                                <td>Transferencia a <strong>Soporte Administrativo</strong></td>
+                            </tr>
+                            <tr>
+                                <td>417712</td>
+                                <td>Transferencia a <strong>Servicios Residenciales</strong></td>
+                            </tr>
+                            <tr>
+                                <td>414436</td>
+                                <td>Transferencia a <strong>Ventas Negocio</strong></td>
+                            </tr>
+                            <tr>
+                                <td>414769</td>
+                                <td>Transferencia a <strong>Ventas Cloud</strong></td>
+                            </tr>
+                            <tr>
+                                <td>417574</td>
+                                <td>Transferencia a <strong>Ventas T-Soluciona</strong></td>
+                            </tr>
+                            <tr>
+                                <td>417525</td>
+                                <td>Transferencia a <strong>Soporte Diens</strong></td>
+                            </tr>
+                            <tr>
+                                <td>417548</td>
+                                <td>Transferencia <strong>Activación de Servicios Cloud</strong>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>417504</td>
+                                <td>Transferencia a <strong>Soporte Cloud</strong></td>
+                            </tr>
+                            <tr>
+                                <td>414903</td>
+                                <td>Transferencia a <strong>Soporte Administrativo Cloud</strong></td>
+                            </tr>
+                            <tr>
+                                <td>414655</td>
+                                <td>Transferencia a <strong>Front Data Center</strong></td>
+                            </tr>
+                            <tr>
+                                <td>417612</td>
+                                <td>Transferencia a <strong>Noc Negocios</strong>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>417614</td>
+                                <td>Transferencia a <strong>Profesional en Office 365</strong></td>
+                            </tr>
+                            <tr>
+                                <td>417616</td>
+                                <td>Transferencia a <strong>Administración Nube Publica</strong>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>414603</td>
+                                <td>Transferencia a <strong>Retención Pymes</strong>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>416819</td>
+                                <td>Consulta <strong>Planta Externa - NOC</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                {{!-- Fin Tabla Listado VDNS --}}
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- / Listado de VDNS Claro -->
+
+<!-- Modal Credenciales Routers HFC -->
+<div class="modal fade" data-backdrop="static" id="Credenciales_RoutersHFC" tabindex="-1" role="dialog"
+    aria-labelledby="Credenciales_RoutersHFCTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="Credenciales_RoutersHFCTitle"><i class="fas fa-key"></i> Credenciales
+                    Routers HFC</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                            <th>
+                                <center>Marca</center>
+                            </th>
+                            <th>
+                                <center>Usuario</center>
+                            </th>
+                            <th>
+                                <center>Clave</center>
+                            </th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>La Mayoria Son</td>
+                                <td>
+                                    <center>admin</center>
+                                </td>
+                                <td>
+                                    <center>Uq-4GIt3M</center>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Modem Arris</td>
+                                <td>
+                                    <center>technician</center>
+                                </td>
+                                <td>
+                                    <center><a href="http://colbtamla01/controles/clave.php" target="_blank">Abrir
+                                            Link</a></center>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Technicolor Antiguos → <small>Ingreso con CPE# + 6 Ultimos Digitos de la MAC del
+                                        Módem</small></td>
+                                <td>
+                                    <div class="form-line">
+                                        <input type="text" id="txt6digimac" class="form-control" data-toggle="tooltip"
+                                            data-placement="bottom"
+                                            title="Ingrese los 6 Ultimos Digitos de la MAC del Módem"
+                                            placeholder="6D50DF" required="required" onchange="edito(this)"
+                                            onkeyup="claveHFC()">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="form-line">
+                                        <textarea class="form-control" rows="1" id="claveCPEHFC" data-toggle="tooltip"
+                                            data-placement="bottom" title="Seleccionar Todo ::: CTRL + A"
+                                            placeholder="CPE#6D50DF"
+                                            onclick="cambio(this); copyclaveCPEHFC()"></textarea>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- / Credenciales Routers HFC -->
+
+
+<!-- Modal Credenciales Routers FO -->
+<div class="modal fade" data-backdrop="static" id="Credenciales_RoutersFO" tabindex="-1" role="dialog"
+    aria-labelledby="Credenciales_RoutersFOTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="Credenciales_RoutersFOTitle"><i class="fas fa-key"></i> Credenciales Routers
+                    FO</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="nav flex-column nav-pills nav-pills-tab" id="v-pills-tab" role="tablist"
+                            aria-orientation="vertical">
+                            <a class="nav-link active show mb-2" id="v-pills-Seleccione-tab" data-toggle="pill"
+                                href="#v-pills-Seleccione" role="tab" aria-controls="v-pills-Seleccione"
+                                aria-selected="false">Seleccione Equipo ↓</a>
+                            <a class="nav-link mb-2" id="v-pills-Credenciales_Gaokes-tab" data-toggle="pill"
+                                href="#v-pills-Credenciales_Gaokes" role="tab"
+                                aria-controls="v-pills-Credenciales_Gaokes" aria-selected="true">Gaoke's</a>
+                            <a class="nav-link mb-2" id="v-pills-Credenciales_Cisco-tab" data-toggle="pill"
+                                href="#v-pills-Credenciales_Cisco" role="tab" aria-controls="v-pills-Credenciales_Cisco"
+                                aria-selected="true">Ciscos</a>
+                            <a class="nav-link mb-2" id="v-pills-Credenciales_Huawei_Consola-tab" data-toggle="pill"
+                                href="#v-pills-Credenciales_Huawei_Consola" role="tab"
+                                aria-controls="v-pills-Credenciales_Huawei_Consola" aria-selected="true">Huawei
+                                Consolas</a>
+                            <a class="nav-link mb-2" id="v-pills-Credenciales_Huawei_IADS-tab" data-toggle="pill"
+                                href="#v-pills-Credenciales_Huawei_IADS" role="tab"
+                                aria-controls="v-pills-Credenciales_Huawei_IADS" aria-selected="true">Huawei IAD's</a>
+                            <a class="nav-link mb-2" id="v-pills-Credenciales_Huawei_MA-tab" data-toggle="pill"
+                                href="#v-pills-Credenciales_Huawei_MA" role="tab"
+                                aria-controls="v-pills-Credenciales_Huawei_MA" aria-selected="true">Huawei MA's</a>
+                            <a class="nav-link mb-2" id="v-pills-Credenciales_Huawei_EchoLife-tab" data-toggle="pill"
+                                href="#v-pills-Credenciales_Huawei_EchoLife" role="tab"
+                                aria-controls="v-pills-Credenciales_Huawei_EchoLife" aria-selected="true">Huawei
+                                EchoLife's</a>
+                            <a class="nav-link mb-2" id="v-pills-Credenciales_ZTE_F660-tab" data-toggle="pill"
+                                href="#v-pills-Credenciales_ZTE_F660" role="tab"
+                                aria-controls="v-pills-Credenciales_ZTE_F660" aria-selected="true">ZTE F660</a>
+                            <a class="nav-link mb-2" id="v-pills-Credenciales_ZTE_F680-tab" data-toggle="pill"
+                                href="#v-pills-Credenciales_ZTE_F680" role="tab"
+                                aria-controls="v-pills-Credenciales_ZTE_F680" aria-selected="true">ZTE F680</a>
+                            <a class="nav-link mb-2" id="v-pills-Credenciales_Juniper-tab" data-toggle="pill"
+                                href="#v-pills-Credenciales_Juniper" role="tab"
+                                aria-controls="v-pills-Credenciales_Juniper" aria-selected="true">Junipers</a>
+                            <a class="nav-link mb-2" id="v-pills-Credenciales_Allieds-tab" data-toggle="pill"
+                                href="#v-pills-Credenciales_Allieds" role="tab"
+                                aria-controls="v-pills-Credenciales_Allieds" aria-selected="true">Allied's</a>
+                        </div>
+                    </div>
+                    <div class="col-sm-9">
+                        <div class="tab-content pt-0">
+                            <div class="tab-pane fade active show" id="v-pills-Seleccione" role="tabpanel"
+                                aria-labelledby="v-pills-Seleccione-tab">
+
+                            </div>
+                            <div class="tab-pane fade" id="v-pills-Credenciales_Gaokes" role="tabpanel"
+                                aria-labelledby="v-pills-Credenciales_Gaokes-tab">
+                                <center>
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th colspan="4">
+                                                        <center>Credenciales Routers Gaoke - Usuarios y Contraseñas
+                                                        </center>
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Opción 1</td>
+                                                    <td>TmX85col</td>
+                                                    <td>enable</td>
+                                                    <td>radon</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Opción 2</td>
+                                                    <td>admin</td>
+                                                    <td>enable</td>
+                                                    <td>radon</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Opción 3</td>
+                                                    <td>n3wcl13nt3s*</td>
+                                                    <td>enable</td>
+                                                    <td>n3wcl13nt3s*</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Opción 4</td>
+                                                    <td>n3wcl13nt3s*</td>
+                                                    <td>enable</td>
+                                                    <td>radon</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Opción 5</td>
+                                                    <td>oN6,%jlf-&lt;+{mtU</td>
+                                                    <td>enable</td>
+                                                    <td>radon</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Opción 6</td>
+                                                    <td>oN6,%jlf-&lt;+{mtU</td>
+                                                    <td>enable</td>
+                                                    <td>radon</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </center>
+                            </div>
+                            <div class="tab-pane fade" id="v-pills-Credenciales_Cisco" role="tabpanel"
+                                aria-labelledby="v-pills-Credenciales_Cisco-tab">
+                                <center>
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th colspan="5">
+                                                        <center>Credenciales Routers Ciscos - Usuarios y Contraseñas
+                                                        </center>
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Opción 1</td>
+                                                    <td>gestion</td>
+                                                    <td>manager147</td>
+                                                    <td>en</td>
+                                                    <td>ATT_(Inicio Raiz)</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Opción 2</td>
+                                                    <td>telmexuser</td>
+                                                    <td>Telmex_Col</td>
+                                                    <td>en</td>
+                                                    <td>Telmex080202</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </center>
+                            </div>
+                            <div class="tab-pane fade" id="v-pills-Credenciales_Huawei_Consola" role="tabpanel"
+                                aria-labelledby="v-pills-Credenciales_Huawei_Consola-tab">
+                                <center>
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th colspan="5">
+                                                        <center>Credenciales Routers Huawei por Consola - Usuarios y
+                                                            Contraseñas</center>
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Opción 1</td>
+                                                    <td>gestion</td>
+                                                    <td>manager147</td>
+                                                    <td>en</td>
+                                                    <td>ATT_(Inicio Raiz)</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Opción 2</td>
+                                                    <td>telmexuser</td>
+                                                    <td>Telmex_Col</td>
+                                                    <td>en</td>
+                                                    <td></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </center>
+                            </div>
+                            <div class="tab-pane fade" id="v-pills-Credenciales_Huawei_IADS" role="tabpanel"
+                                aria-labelledby="v-pills-Credenciales_Huawei_IADS-tab">
+                                <center>
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th colspan="4">
+                                                        <center>Credenciales Routers Huawei IAD'S 2000 - 102H y 104H -
+                                                            Usuarios y Contraseñas</center>
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Opción 1</td>
+                                                    <td>root</td>
+                                                    <td>admin</td>
+                                                    <td>en</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </center>
+                            </div>
+                            <div class="tab-pane fade" id="v-pills-Credenciales_Huawei_MA" role="tabpanel"
+                                aria-labelledby="v-pills-Credenciales_Huawei_MA-tab">
+                                <center>
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th colspan="3">
+                                                        <center>Credenciales Routers Huawei MA5675 - Usuarios y
+                                                            Contraseñas</center>
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Opción 1</td>
+                                                    <td>telecomadmin</td>
+                                                    <td>admintelecom</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Opción 2</td>
+                                                    <td>telecomadmin</td>
+                                                    <td>Cl4r0@dm1n</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </center>
+                            </div>
+                            <div class="tab-pane fade" id="v-pills-Credenciales_Huawei_EchoLife" role="tabpanel"
+                                aria-labelledby="v-pills-Credenciales_Huawei_EchoLife-tab">
+                                <center>
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th colspan="3">
+                                                        <center>Credenciales Routers Huawei EchoLife EG8245W5-6T -
+                                                            Usuarios y Contraseñas</center>
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Opción 1</td>
+                                                    <td>admin@claro</td>
+                                                    <td>Gp0n2019CL4R0!</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Opción 2</td>
+                                                    <td>telecomadmin</td>
+                                                    <td>admintelecom</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Opción 3</td>
+                                                    <td>telecomadmin</td>
+                                                    <td>Cl4r0@dm1n</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </center>
+                            </div>
+                            <div class="tab-pane fade" id="v-pills-Credenciales_ZTE_F660" role="tabpanel"
+                                aria-labelledby="v-pills-Credenciales_ZTE_F660-tab">
+                                <center>
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th colspan="3">
+                                                        <center>Credenciales Routers ZTE F660 - Usuarios y Contraseñas
+                                                        </center>
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Opción 1</td>
+                                                    <td>admin</td>
+                                                    <td>TmX85col</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Opción 2</td>
+                                                    <td>admin</td>
+                                                    <td>Gpon2016CLARO!</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Opción 3</td>
+                                                    <td>admin</td>
+                                                    <td>admin</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </center>
+                            </div>
+                            <div class="tab-pane fade" id="v-pills-Credenciales_ZTE_F680" role="tabpanel"
+                                aria-labelledby="v-pills-Credenciales_ZTE_F680-tab">
+                                <center>
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th colspan="3">
+                                                        <center>Credenciales Routers ZTE F680 - Usuarios y Contraseñas
+                                                        </center>
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Opción 1</td>
+                                                    <td>admin@claro</td>
+                                                    <td>Gp0n2019CL4R0!</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </center>
+                            </div>
+                            <div class="tab-pane fade" id="v-pills-Credenciales_Juniper" role="tabpanel"
+                                aria-labelledby="v-pills-Credenciales_Juniper-tab">
+                                <center>
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th colspan="3">
+                                                        <center>Credenciales Routers Juniper - Usuarios y Contraseñas
+                                                        </center>
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Opción 1</td>
+                                                    <td>gestion</td>
+                                                    <td>TmX85col</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </center>
+                            </div>
+                            <div class="tab-pane fade" id="v-pills-Credenciales_Allieds" role="tabpanel"
+                                aria-labelledby="v-pills-Credenciales_Allieds-tab">
+                                <center>
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th colspan="4">
+                                                        <center>Credenciales Routers Ciscos - Usuarios y Contraseñas
+                                                        </center>
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Opción 1</td>
+                                                    <td>telmex</td>
+                                                    <td>TmX85col</td>
+                                                    <td></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Opción 2</td>
+                                                    <td>manager</td>
+                                                    <td>friend</td>
+                                                    <td>comando salir ul</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </center>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- / Credenciales Routers FO -->
+
+
+<!-- Modal Traza Casos CRM EYN -->
+<div class="modal fade" data-backdrop="static" id="TrazaCasosCRMEyN" tabindex="-1" role="dialog"
+    aria-labelledby="TrazaCasosCRMEyNTitle" aria-hidden="true" style="height: 850px">
+    <div class="modal-dialog modal-full" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="TrazaCasosCRMEyNTitle"><i class="fas fa-search"></i> Trazabilidad de Casos
+                    CRM EyN</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-row">
+                    {{!-- Tabla Listar Datos Trazabilidad CRM EyN --}}
+                    <div class="table-responsive">
+                        <form>
+                            <div class="form-row">
+                                <div class="form-group col-sm-6 col-md-6 col-lg-3 col-xl-3">
+                                    <label for="txtfecha_hora_registro" class="col-form-label">Cuenta - Enlace | O |
+                                        Radicado - TK</label>
+                                    <div class="input-group">
+                                        <input type="text" name="enlace" id="txtcuenta_busqueda" class="form-control"
+                                            data-toggle="tooltip" data-placement="bottom" title="Buscar Cuenta"
+                                            placeholder="03267390 - 898361287" autocomplete="off">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="btncuenta_busqueda"><i
+                                                    class="fas fa-search"></i></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+
+                        <table id="Reporte_Trazabilidad_CRMEyN" class="table table-striped dt-responsive nowrap">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        <center>INGRESO CRM</center>
+                                    </th>
+                                    <th>
+                                        <center>CANAL / RADICADO</center>
+                                    </th>
+                                    <th>
+                                        <center>ÁREA GESTIÓN</center>
+                                    </th>
+                                    <th>
+                                        <center>ROL ASESOR</center>
+                                    </th>
+                                    <th>
+                                        <center>FALLA / SOLICITUD</center>
+                                    </th>
+                                    <th>
+                                        <center>CUENTA / ENLACE</center>
+                                    </th>
+                                    <th>
+                                        <center>TECNOLOGÍA</center>
+                                    </th>
+                                    <th>
+                                        <center>CONTACTO CLIENTE</center>
+                                    </th>
+                                    <th>
+                                        <center>NUMERO CLIENTE</center>
+                                    </th>
+                                    <th>
+                                        <center>OBSERVACIONES</center>
+                                    </th>
+                                    <th>
+                                        <center>NO. RADICADO</center>
+                                    </th>
+                                    <th>
+                                        <center>ESTADO CASO</center>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                    {{!-- Fin Tabla Listar Datos Trazabilidad CRM EyN --}}
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- / Traza Casos CRM EYN -->
+
+<!-- Modal Casos Escalados Front -->
+<div class="modal" data-backdrop="static" id="EscalamientosBack" tabindex="-1" role="dialog"
+    aria-labelledby="EscalamientosBackTitle" aria-hidden="true" style="height: 850px">
+    <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="EscalamientosBackTitle"><i class="fab fa-digital-ocean"></i> Escalamientos
+                    FRONT</h5>
+                {{!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button> --}}
+
+                <div class="form-row">
+                    <div semaforo=""
+                        style="float: left; margin-right: 10px; padding-right: 10px; border-right: 0.5px solid grey;">
+                        <div semaforo="" class="rojo" style="float: left; margin-right: 5px;"></div>P1
+                    </div>
+                    <div semaforo=""
+                        style="float: left; margin-right: 10px; padding-right: 10px; border-right: 0.5px solid grey;">
+                        <div semaforo="" class="amarillo" style="float: left; margin-right: 5px;"></div>P2
+                    </div>
+                    <div semaforo="">
+                        <div semaforo="" class="verde" style="float: left; margin-right: 5px;"></div>P3
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-body">
+
+                {{!-- Tabla Casos Usuario --}}
+                <div class="table-responsive">
+                    <table id="Reporte_Casos_Escalados" class="table table-striped dt-responsive nowrap">
+                        <thead>
+                            <tr>
+                                <th>
+                                    <center>ID</center>
+                                </th>
+                                <th>
+                                    <center>PRIORIDAD</center>
+                                </th>
+                                <th>
+                                    <center>INGRESO CRM</center>
+                                </th>
+                                <th>
+                                    <center>EDITAR</center>
+                                </th>
+                                <th>
+                                    <center>ESTADO CASO</center>
+                                </th>
+                                <th>
+                                    <center>NOMBRE</center>
+                                </th>
+                                <th>
+                                    <center>USUARIO</center>
+                                </th>
+                                <th>
+                                    <center>ÁREA GESTIÓN</center>
+                                </th>
+                                <th>
+                                    <center>ROL</center>
+                                </th>
+                                <th>
+                                    <center>FALLA / SOLICITUD</center>
+                                </th>
+                                <th>
+                                    <center>CUENTA / ENLACE</center>
+                                </th>
+                                <th>
+                                    <center>TECNOLOGÍA</center>
+                                </th>
+                                <th>
+                                    <center>CONTACTO CLIENTE</center>
+                                </th>
+                                <th>
+                                    <center>NUMERO CLIENTE</center>
+                                </th>
+                                <th>
+                                    <center>OBSERVACIONES</center>
+                                </th>
+                                <th>
+                                    <center>RADICADO</center>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+                {{!-- Fin Tabla Tabla Casos Usuario --}}
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary"
+                    onclick="closeMOdals('EscalamientosBack')">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- / Casos Escalados Front -->
+
+<!-- Modal Perfil -->
+<div class="modal fade" data-backdrop="static" id="dashboard" tabindex="-1" role="dialog"
+    aria-labelledby="dashboardTitle" aria-hidden="true" style="height: 850px">
+    <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="dashboardTitle"><i class="fe-user"></i> Perfil</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                {{!-- Contenido Vista Perfil --}}
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card-box">
+                            <div data-spy="scroll" data-target="#navbar-example2" data-offset="0"
+                                class="scrollspy-example">
+
+                                <table id="Datos_Personales" class="table table-striped dt-responsive nowrap">
+                                    <thead>
+                                        <tr style="background: #e01010; color: white">
+                                            <th>
+                                                <center>ÁREA DE GESTIÓN</center>
+                                            </th>
+                                            <th>
+                                                <center>ROL</center>
+                                            </th>
+                                            <th>
+                                                <center>NOMBRE</center>
+                                            </th>
+                                            <th>
+                                                <center>DOCUMENTO</center>
+                                            </th>
+                                            <th>
+                                                <center>LOGIN CMS</center>
+                                            </th>
+                                            <th>
+                                                <center>USUARIO DE RED</center>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <center>{{user.USU_ROL}}</center>
+                                            </td>
+                                            <td>
+                                                <center>{{user.USU_ROL}}</center>
+                                            </td>
+                                            <td>
+                                                <center>{{user.USU_NOMBRES_APELLIDOS}}</center>
+                                            </td>
+                                            <td>
+                                                <center>{{user.USU_DOCUMENTO}}</center>
+                                            </td>
+                                            <td>
+                                                <center>{{user.USU_LOGINCMS}}</center>
+                                            </td>
+                                            <td>
+                                                <center>{{user.USU_USUARIO}}</center>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </Table>
+
+
+                                <div class="row no-gutters">                                    
+                                    <div class="table-responsive">
+                                        <table id="Reporte_Casos_Usuario"
+                                            class="table table-striped dt-responsive nowrap">
+                                            <thead>
+                                                <tr>
+                                                    <th>
+                                                        <center>TIPO_SOLICITUD</center>
+                                                    </th>
+                                                    <th>
+                                                        <center>DATOS</center>
+                                                    </th>
+                                                    <th>
+                                                        <center>ESTADO</center>
+                                                    </th>
+                                                    <th>
+                                                        <center>MENSAJE</center>
+                                                    </th>                                                    
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    {{!-- Fin Tabla Tabla Casos Usuario --}}
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{!-- Fin Contenido Vista Perfil --}}
+            </div>
+        </div>
+    </div>
+</div>
+<!-- / Perfil-->
+{{/if}}
+
+
+{{!-- ------------------------------------------------------------------- --}}
+
+{{!-- ------------------------------------------------------------------- --}}
