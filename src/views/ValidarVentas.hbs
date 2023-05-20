@@ -1,0 +1,166 @@
+<head>
+
+    <title>Validar Ventas</title>
+
+</head>
+<div class="d-none" id="Rol">{{user.USU_ROL}}</div>
+<div class="d-none" id="Sede">{{user.USU_SEDE}}</div>
+<div class="d-none" id="estadoUsuario">{{user.USU_ESTADO}}</div>
+<div class="d-none" id="nombreUsuario">{{user.USU_NOMBRES_APELLIDOS}}</div>
+<div class="content content-page">
+    <div class="container-fluid">
+        {{!-- Titulo pagina --}}
+        <div class="row">
+            <div class="col-12">
+                <div class="page-title-box">
+                    <h4 class="page-title">Validar Ventas</h4>
+                    {{> message }}
+                </div>
+            </div>
+        </div>
+
+        {{!-- Formulario Front Negocios --}}
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        {{!-- Inicia Acordeon General --}}
+                        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                            <div class="table-responsive">
+                                <table id="ReporteVentas"
+                                    class="table table-striped dt-responsive nowrap display compact">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                <center>APROBAR</center>
+                                            </th>
+                                            <th>
+                                                <center>PRODUCTOS</center>
+                                            </th>
+                                            <th>
+                                                <center>PRECIO</center>
+                                            </th>
+                                            <th>
+                                                <center>MESA</center>
+                                            </th>
+                                            <th>
+                                                <center>VENDEDOR</center>
+                                            </th>
+                                            <th>
+                                                <center>SEDE</center>
+                                            </th>
+                                            <th>
+                                                <center>FECHA VENTA</center>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {{#each listaVentas}}
+                                        <tr>
+                                            <td>
+                                                <center><a><button type="button"
+                                                            class="btn btn-primary waves-effect waves-light"
+                                                            data-toggle="modal"
+                                                            data-target="#crud_AdminUsuarios_actualizar_{{PK_ID_VENT}}"><i
+                                                                class="fas fa-edit"></i></button></a></center>
+                                                <div class="modal fade"
+                                                    id="crud_AdminUsuarios_actualizar_{{PK_ID_VENT}}" tabindex="-1"
+                                                    role="dialog" aria-labelledby="crud_AdminUsuarios_actualizarTitle"
+                                                    aria-hidden="true">
+                                                    <div class="modal-dialog modal-lg modal-dialog-scrollable"
+                                                        role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title"
+                                                                    id="crud_AdminUsuarios_actualizarTitle"><i
+                                                                        class="fas fa-edit"></i> Venta
+                                                                </h5>
+                                                                <button type="button" class="close" data-dismiss="modal"
+                                                                    aria-label="Close">
+                                                                    <span aria-hidden="true">&times;</span>
+                                                                </button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <form action="/AprobarVenta/{{PK_ID_VENT}}"
+                                                                    method="POST">
+
+                                                                    <div
+                                                                        class="form-group col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                                                        <label for="txtMetodoPago"
+                                                                            class="col-form-label">METODO DE
+                                                                            PAGO</label>
+                                                                        <select class="custom-select form-select-lg"
+                                                                            name="MetodoPago" id="txtMetodoPago">
+                                                                            <option selected value="">Escoja un metodo
+                                                                                de pago
+                                                                            </option>
+                                                                            <option value="Tarjeta">Tarjeta</option>
+                                                                            <option value="Efectivo">Efectivo</option>
+                                                                            <option value="Nequi">Nequi</option>
+                                                                            <option value="Daviplata">Daviplata</option>
+                                                                        </select>
+                                                                    </div>
+
+                                                                    <div
+                                                                        class="form-group col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                                                        <label for="txtAprobado"
+                                                                            class="col-form-label">APROBADO</label>
+                                                                        <select class="custom-select form-select-lg"
+                                                                            name="Aprobado" id="txtAprobado">
+                                                                            <option selected value="">Escoja una Mesa
+                                                                            </option>
+                                                                            <option value="Aprobado">Aprobado</option>
+                                                                            <option value="No Aprobado">No Aprobado
+                                                                            </option>
+                                                                        </select>
+                                                                    </div>
+
+                                                                    <center>
+                                                                        <button type="submit" name="action"
+                                                                            class="btn btn-primary waves-effect waves-light">
+                                                                            Terminar Venta
+                                                                        </button>
+                                                                    </center>
+                                                                </form>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-secondary"
+                                                                    data-dismiss="modal">Cerrar</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <center>{{NombreVenta}}</center>
+                                            </td>
+                                            <td>
+                                                <center>{{PRECIO}}</center>
+                                            </td>
+                                            <td>
+                                                <center>{{MESA}}</center>
+                                            </td>
+                                            <td>
+                                                <center>{{VENDEDOR}}</center>
+                                            </td>
+                                            <td>
+                                                <center>{{SEDE}}</center>
+                                            </td>
+                                            <td>
+                                                <center>{{FECHA_REGISTRO}}</center>
+                                            </td>
+                                        </tr>
+                                        {{/each}}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="js/ControllerHistorialVentas.js"></script>

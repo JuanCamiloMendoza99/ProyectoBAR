@@ -65,9 +65,7 @@
                                                     <input type="text" name="documento" id="txtdocumento_usuario"
                                                         class="form-control" data-toggle="tooltip"
                                                         data-placement="bottom" title="Cédula, PEP etc nuevo usuario"
-                                                        placeholder="1056266895" onkeyup="mayus(this);"
-                                                        autocomplete="off" onchange="edito(this)" onclick="cambio(this)"
-                                                        required>
+                                                        placeholder="1056266895" autocomplete="off" required>
                                                 </div>
 
                                                 <div class="form-group col-sm-6 col-md-6 col-lg-6 col-xl-6">
@@ -77,18 +75,16 @@
                                                         id="txtnombre_apellidos_usuario" class="form-control"
                                                         data-toggle="tooltip" data-placement="bottom"
                                                         title="Nombres y apellidos nuevo usuario" onkeyup="mayus(this);"
-                                                        placeholder="Pepito Perez" autocomplete="off"
-                                                        onchange="edito(this)" onclick="cambio(this)" required
+                                                        placeholder="Pepito Perez" autocomplete="off" required
                                                         autofocus>
                                                 </div>
 
                                                 <div class="form-group col-sm-6 col-md-6 col-lg-6 col-xl-6">
-                                                    <label for="txtlogincms" class="col-form-label">Login CMS</label>
-                                                    <input type="text" name="logincms" id="txtlogincms"
+                                                    <label for="password" class="col-form-label">Password</label>
+                                                    <input type="text" name="password" id="password"
                                                         class="form-control" data-toggle="tooltip"
-                                                        data-placement="bottom" title="Login CMS" placeholder="372126"
-                                                        onkeypress="return solonumeros(event)" autocomplete="off"
-                                                        onchange="edito(this)" onclick="cambio(this)" required>
+                                                        data-placement="bottom" title="Usuario red"
+                                                        placeholder="ECF0343A" autocomplete="off" required>
                                                 </div>
 
                                                 <div class="form-group col-sm-6 col-md-6 col-lg-6 col-xl-6">
@@ -97,17 +93,16 @@
                                                         class="form-control" data-toggle="tooltip"
                                                         data-placement="bottom" title="Usuario red"
                                                         placeholder="ECF0343A" onkeyup="mayus(this);" autocomplete="off"
-                                                        onchange="edito(this)" onclick="cambio(this)" required>
+                                                        required>
                                                 </div>
 
                                                 <div class="form-group col-sm-6 col-md-6 col-lg-6 col-xl-6">
-                                                    <label for="txtarea_gestion_usuario" class="col-form-label">Área
-                                                        Gestión</label>
-                                                    <input type="text" name="area_gestion" id="txtarea_gestion_usuario"
-                                                        list="crud_areas_internas_gestion_Administrador" class="form-control"
-                                                        data-toggle="tooltip" data-placement="bottom"
-                                                        title="Área asignada" placeholder="Front" autocomplete="off"
-                                                        onchange="edito(this)" onclick="cambio(this)" required>
+                                                    <label for="txtsede" class="col-form-label">Sede</label>
+                                                    <input type="text" name="sede" id="txtsede" list="crud_Ubicaciones"
+                                                        class="form-control" data-toggle="tooltip"
+                                                        data-placement="bottom" title="Rol asignado"
+                                                        placeholder="Negocios" autocomplete="off" onchange="edito(this)"
+                                                        onclick="cambio(this)" required>
                                                 </div>
 
                                                 <div class="form-group col-sm-6 col-md-6 col-lg-6 col-xl-6">
@@ -118,16 +113,6 @@
                                                         title="Rol asignado" placeholder="Negocios" autocomplete="off"
                                                         onchange="edito(this)" onclick="cambio(this)" required>
                                                 </div>
-
-                                                {{!-- <div class="form-group col-sm-6 col-md-6 col-lg-6 col-xl-6">
-                                                    <label for="txtaliado_usuario" class="col-form-label">Aliado</label>
-                                                    <input type="text" name="aliado" id="txtaliado_usuario"
-                                                        list="crud_Aliados_Claro_EyN" class="form-control"
-                                                        data-toggle="tooltip" data-placement="bottom"
-                                                        title="A que aliado pertenece usuario?"
-                                                        placeholder="EYN - Soporte Negocios COS" autocomplete="off"
-                                                        onchange="edito(this)" onclick="cambio(this)" required>
-                                                </div> --}}
 
                                                 <div class="form-group col-sm-6 col-md-6 col-lg-6 col-xl-6">
                                                     <label for="txtestado_usuario" class="col-form-label">Estado</label>
@@ -164,34 +149,34 @@
                                     <tr>
                                         <th>
                                             <center>ID</center>
-                                        </th>                                        
+                                        </th>
                                         <th>
                                             <center>EDITAR</center>
-                                        </th>   
+                                        </th>
                                         <th>
                                             <center>FECHA REGISTRO</center>
-                                        </th>                                      
+                                        </th>
                                         <th>
                                             <center>DOCUMENTO</center>
                                         </th>
                                         <th>
                                             <center>NOMBRES Y APELLIDOS</center>
-                                        </th>                                        
+                                        </th>
                                         <th>
                                             <center>USUARIO RED</center>
-                                        </th>  
+                                        </th>
                                         <th>
                                             <center>SEDE</center>
-                                        </th>                                       
+                                        </th>
                                         <th>
                                             <center>ROL</center>
-                                        </th>                                        
+                                        </th>
                                         <th>
                                             <center>ESTADO</center>
                                         </th>
                                         <th>
                                             <center>ÚLTIMA ACTUALIZACIÓN</center>
-                                        </th>                                        
+                                        </th>
                                         <th>
                                             <center>RESPONSABLE</center>
                                         </th>
@@ -209,10 +194,9 @@
                                                         data-target="#crud_AdminUsuarios_actualizar_{{USU_PK_ID}}"><i
                                                             class="fas fa-edit"></i></button></a></center>
                                             {{!-- Modal Crud Actualizar Usuarios--}}
-                                            <div class="modal fade"
-                                                id="crud_AdminUsuarios_actualizar_{{USU_PK_ID}}" tabindex="-1"
-                                                role="dialog" aria-labelledby="crud_AdminUsuarios_actualizarTitle"
-                                                aria-hidden="true">
+                                            <div class="modal fade" id="crud_AdminUsuarios_actualizar_{{USU_PK_ID}}"
+                                                tabindex="-1" role="dialog"
+                                                aria-labelledby="crud_AdminUsuarios_actualizarTitle" aria-hidden="true">
                                                 <div class="modal-dialog modal-lg modal-dialog-scrollable"
                                                     role="document">
                                                     <div class="modal-content">
@@ -226,8 +210,7 @@
                                                             </button>
                                                         </div>
                                                         <div class="modal-body">
-                                                            <form action="/adminusuarios/{{USU_PK_ID}}"
-                                                                method="POST">
+                                                            <form action="/adminusuarios/{{USU_PK_ID}}" method="POST">
                                                                 <div class="form-row">
 
                                                                     <div
@@ -241,8 +224,8 @@
                                                                             title="Cédula, PEP etc nuevo usuario"
                                                                             placeholder="1056266895"
                                                                             onkeyup="mayus(this);"
-                                                                            value="{{USU_DOCUMENTO}}"
-                                                                            autocomplete="off" onchange="edito(this)"
+                                                                            value="{{USU_DOCUMENTO}}" autocomplete="off"
+                                                                            onchange="edito(this)"
                                                                             onclick="cambio(this)" required>
                                                                     </div>
 
@@ -265,26 +248,22 @@
 
                                                                     <div
                                                                         class="form-group col-sm-6 col-md-6 col-lg-6 col-xl-6">
-                                                                        <label for="txtlogincms"
-                                                                            class="col-form-label">Login CMS</label>
-                                                                        <input type="text" name="logincms"
-                                                                            id="txtlogincms" class="form-control"
-                                                                            data-toggle="tooltip"
-                                                                            data-placement="bottom" title="Login CMS"
-                                                                            placeholder="372126"
-                                                                            onkeypress="return solonumeros(event)"
-                                                                            value="{{USU_LOGINCMS}}" autocomplete="off"
+                                                                        <label for="password"
+                                                                            class="col-form-label">Password</label>
+                                                                        <input type="text" name="password" id="password"
+                                                                            class="form-control" data-toggle="tooltip"
+                                                                            data-placement="bottom" autocomplete="off"
+                                                                            value="{{USU_PASSWORD}}"
                                                                             onchange="edito(this)"
-                                                                            onclick="cambio(this)" required>
+                                                                            onclick="cambio(this)" required autofocus>
                                                                     </div>
 
                                                                     <div
                                                                         class="form-group col-sm-6 col-md-6 col-lg-6 col-xl-6">
-                                                                        <label for="txtusuario_red"
+                                                                        <label for="usuario"
                                                                             class="col-form-label">Usuario</label>
-                                                                        <input type="text" name="usuario"
-                                                                            id="txtusuario_red" class="form-control"
-                                                                            data-toggle="tooltip"
+                                                                        <input type="text" name="usuario" id="usuario"
+                                                                            class="form-control" data-toggle="tooltip"
                                                                             data-placement="bottom" title="Usuario red"
                                                                             placeholder="ECF0343A"
                                                                             onkeyup="mayus(this);"
@@ -295,16 +274,13 @@
 
                                                                     <div
                                                                         class="form-group col-sm-6 col-md-6 col-lg-6 col-xl-6">
-                                                                        <label for="txtarea_gestion_usuario"
-                                                                            class="col-form-label">Área Gestión</label>
-                                                                        <input type="text" name="area_gestion"
-                                                                            id="txtarea_gestion_usuario"
-                                                                            list="crud_areas_internas_gestion"
-                                                                            class="form-control" data-toggle="tooltip"
-                                                                            data-placement="bottom"
-                                                                            title="Área asignada"
-                                                                            value="{{USU_ROL}}"
-                                                                            placeholder="Front" autocomplete="off"
+                                                                        <label for="txtsede"
+                                                                            class="col-form-label">Sede</label>
+                                                                        <input type="text" name="sede" id="txtsede"
+                                                                            list="crud_Ubicaciones" class="form-control"
+                                                                            data-toggle="tooltip" value="{{USU_SEDE}}"
+                                                                            data-placement="bottom" title="Rol asignado"
+                                                                            placeholder="Negocios" autocomplete="off"
                                                                             onchange="edito(this)"
                                                                             onclick="cambio(this)" required>
                                                                     </div>
@@ -314,7 +290,8 @@
                                                                         <label for="txtrol_usuario"
                                                                             class="col-form-label">Rol</label>
                                                                         <input type="text" name="rol"
-                                                                            id="txtrol_usuario" list="crud_rol_internos"
+                                                                            id="txtrol_usuario"
+                                                                            list="crud_rol_internos_Administrador"
                                                                             class="form-control" data-toggle="tooltip"
                                                                             data-placement="bottom" title="Rol asignado"
                                                                             value="{{USU_ROL}}" placeholder="Negocios"
@@ -322,21 +299,7 @@
                                                                             onclick="cambio(this)" required>
                                                                     </div>
 
-                                                                    <div
-                                                                        class="form-group col-sm-6 col-md-6 col-lg-6 col-xl-6">
-                                                                        <label for="txtaliado_usuario"
-                                                                            class="col-form-label">Aliado</label>
-                                                                        <input type="text" name="aliado"
-                                                                            id="txtaliado_usuario"
-                                                                            list="crud_Aliados_Claro_EyN"
-                                                                            class="form-control" data-toggle="tooltip"
-                                                                            data-placement="bottom"
-                                                                            title="A que aliado pertenece usuario?"
-                                                                            value="{{USU_ALIADO}}"
-                                                                            placeholder="EYN - Soporte Negocios COS"
-                                                                            autocomplete="off" onchange="edito(this)"
-                                                                            onclick="cambio(this)" required>
-                                                                    </div>
+
 
                                                                     <div
                                                                         class="form-group col-sm-6 col-md-6 col-lg-6 col-xl-6">
@@ -372,14 +335,14 @@
                                             </div>
                                             {{!-- Fin Modal Crud Actualizar Usuarios--}}
                                         </td>
-                                        <td>{{USU_FECHA_REGISTRO}}</td>                                          
+                                        <td>{{USU_FECHA_REGISTRO}}</td>
                                         <td>{{USU_DOCUMENTO}}</td>
-                                        <td>{{USU_NOMBRES_APELLIDOS}}</td>                                        
+                                        <td>{{USU_NOMBRES_APELLIDOS}}</td>
                                         <td>{{USU_USUARIO}}</td>
-                                        <td>{{USU_SEDE}}</td>                                        
-                                        <td>{{USU_ROL}}</td>                                        
+                                        <td>{{USU_SEDE}}</td>
+                                        <td>{{USU_ROL}}</td>
                                         <td>{{USU_ESTADO}}</td>
-                                        <td>{{USU_FECHA_MODIFICACION}}</td>                                        
+                                        <td>{{USU_FECHA_MODIFICACION}}</td>
                                         <td>{{USU_RESPONSABLE_GESTION}}</td>
                                     </tr>
                                     {{/each}}

@@ -1,0 +1,327 @@
+<head>
+
+    <title>Inventario Maestro</title>
+
+</head>
+<div class="d-none" id="Rol">{{user.USU_ROL}}</div>
+<div class="d-none" id="Sede">{{user.USU_SEDE}}</div>
+<div class="d-none" id="estadoUsuario">{{user.USU_ESTADO}}</div>
+<div class="d-none" id="nombreUsuario">{{user.USU_NOMBRES_APELLIDOS}}</div>
+<div class="content content-page">
+    <div class="container-fluid">
+        {{!-- Titulo pagina --}}
+        <div class="row">
+            <div class="col-12">
+                <div class="page-title-box">
+                    <h4 class="page-title">Inventario {{TipoInventario}}</h4>
+                    {{> message }}
+                </div>
+            </div>
+        </div>
+
+        {{!-- Formulario Front Negocios --}}
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        {{!-- Modal Crud Registrar Usuarios--}}
+                        <div class="button-list">
+                            <button type="button" class="btn btn-info waves-effect waves-light" data-toggle="modal"
+                                data-target="#crud_AdminUsuarios_registro"><i class="fas fa-plus"></i></button>
+                            <br /><br />
+                        </div>
+
+                        <div class="modal fade" id="crud_AdminUsuarios_registro" tabindex="-1" role="dialog"
+                            aria-labelledby="crud_AdminUsuarios_registroTitle" aria-hidden="true">
+                            <div class="modal-dialog modal-lg modal-dialog-scrollable" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="crud_AdminUsuarios_registroTitle"><i
+                                                class="fas fa-plus"></i> Registrar Usuarios</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form action="/RegistarInventario" method="POST">
+                                            <div class="form-row">
+                                                <div class="form-group col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                                                    <label for="txtcargo" class="col-form-label">Cargo</label>
+                                                    <input type="text" name="cargo" id="txtcargo"
+                                                        class="form-control form-control-1" value="{{user.USU_ROL}}"
+                                                        autocomplete="off" onchange="edito(this)" readonly>
+                                                </div>
+                                                <div class="form-group col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                                                    <label for="txtresponsable_gestion"
+                                                        class="col-form-label">Responsable Gestión</label>
+                                                    <input type="text" name="responsable_gestion"
+                                                        id="txtresponsable_gestion" class="form-control form-control-1"
+                                                        value="{{user.USU_NOMBRES_APELLIDOS}}" autocomplete="off"
+                                                        onchange="edito(this)" readonly>
+                                                </div>
+
+                                                <div class="form-group col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                                                    <label for="txtcantidad_inventario"
+                                                        class="col-form-label">Cantidad</label>
+                                                    <input type="number" name="cantidad" id="txtcantidad_inventario"
+                                                        class="form-control" data-toggle="tooltip"
+                                                        data-placement="bottom" title="Cantidad de objetos"
+                                                        placeholder="3" autocomplete="off" required>
+                                                </div>
+
+                                                <div class="form-group col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                                                    <label for="txtnombre_inventario"
+                                                        class="col-form-label">Nombre</label>
+                                                    <input type="text" name="nombre" id="txtnombre_inventario"
+                                                        class="form-control" data-toggle="tooltip"
+                                                        data-placement="bottom" title="Nombres del objeto"
+                                                        placeholder="Gaseosa ..." onkeyup="mayus(this);"
+                                                        autocomplete="off" required autofocus>
+                                                </div>
+
+                                                <div class="form-group col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                                                    <label for="txtprecio_inventario" class="col-form-label">Precio
+                                                        $</label>
+                                                    <input type="number" name="precio" id="txtprecio_inventario"
+                                                        class="form-control" data-toggle="tooltip"
+                                                        data-placement="bottom" title="Precio" placeholder="4500"
+                                                        autocomplete="off" required>
+                                                </div>
+
+                                                <div class="form-group col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                                                    <label for="txtestado_inventario"
+                                                        class="col-form-label">Estado</label>
+                                                    <input type="text" name="estado" id="txtestado_inventario"
+                                                        list="crud_Estado_Invetario" class="form-control"
+                                                        data-toggle="tooltip" data-placement="bottom"
+                                                        title="Estado Actual Inventario" placeholder="Activo"
+                                                        autocomplete="off" required>
+                                                </div>
+
+                                                <div class="form-group col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                                                    <label for="txtubicacion_inventario"
+                                                        class="col-form-label">Ubicacion</label>
+                                                    <input type="text" name="ubicacion" id="txtubicacion_inventario"
+                                                        list="crud_Ubicaciones" class="form-control"
+                                                        data-toggle="tooltip" data-placement="bottom" title="Ubicacion"
+                                                        placeholder="Suba" required>
+                                                </div>
+                                            </div>
+                                            <center>
+                                                <button type="submit" name="action"
+                                                    class="btn btn-success btn-rounded waves-effect waves-light">
+                                                    <span class="btn-label"><i class="fas fa-database"></i></span>Crear
+                                                    Objeto
+                                                </button>
+                                            </center>
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-dismiss="modal">Cerrar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {{!-- Fin Modal Crud Registrar Usuarios--}}
+                        {{!-- Inicia Acordeon General --}}
+                        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                            <div class="table-responsive">
+                                <table id="ReporteInventario"
+                                    class="table table-striped dt-responsive nowrap display compact">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                <center>ID OBJETO</center>
+                                            </th>
+                                            <th>
+                                                <center>EDITAR</center>
+                                            </th>
+                                            <th>
+                                                <center>CANTIDAD DISPONIBLE</center>
+                                            </th>
+                                            <th>
+                                                <center>NOMBRE</center>
+                                            </th>
+                                            <th>
+                                                <center>PRECIO</center>
+                                            </th>
+                                            <th>
+                                                <center>ESTADO</center>
+                                            </th>
+                                            <th>
+                                                <center>UBICACION</center>
+                                            </th>
+                                            <th>
+                                                <center>FECHA REGISTRO</center>
+                                            </th>
+                                            <th>
+                                                <center>FECHA MODIFICACION</center>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {{#each listaInventarioMain}}
+                                        <tr>
+                                            <td>
+                                                <center>{{PK_ID_INVE}}</center>
+                                            </td>
+                                            <td>
+                                                {{!-- Modal Crud Actualizar Usuarios--}}
+                                                <center><a><button type="button"
+                                                            class="btn btn-primary waves-effect waves-light"
+                                                            data-toggle="modal"
+                                                            data-target="#crud_Inventario_actualizar_{{PK_ID_INVE}}"><i
+                                                                class="fas fa-edit"></i></button></a></center>
+                                                {{!-- Modal Crud Actualizar Usuarios--}}
+                                                <div class="modal fade" id="crud_Inventario_actualizar_{{PK_ID_INVE}}"
+                                                    tabindex="-1" role="dialog"
+                                                    aria-labelledby="crud_Inventario_actualizarTitle"
+                                                    aria-hidden="true">
+                                                    <div class="modal-dialog modal-lg modal-dialog-scrollable"
+                                                        role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title"
+                                                                    id="crud_Inventario_actualizarTitle"><i
+                                                                        class="fas fa-edit"></i> Actualizar Objeto
+                                                                    Invetario
+                                                                </h5>
+                                                                <button type="button" class="close" data-dismiss="modal"
+                                                                    aria-label="Close">
+                                                                    <span aria-hidden="true">&times;</span>
+                                                                </button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <form action="/ActualizarInventario/{{PK_ID_INVE}}"
+                                                                    method="POST">
+                                                                    <div class="form-row">
+
+                                                                        <div
+                                                                            class="form-group col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                                                                            <label for="txtcantidad_inventario"
+                                                                                class="col-form-label">Cantidad</label>
+                                                                            <input type="number" name="cantidad"
+                                                                                id="txtcantidad_inventario"
+                                                                                class="form-control"
+                                                                                data-toggle="tooltip"
+                                                                                data-placement="bottom"
+                                                                                title="Cantidad de objetos"
+                                                                                placeholder="3" value="{{CANTIDAD}}"
+                                                                                autocomplete="off" required>
+                                                                        </div>
+
+                                                                        <div
+                                                                            class="form-group col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                                                                            <label for="txtnombre_inventario"
+                                                                                class="col-form-label">Nombre</label>
+                                                                            <input type="text" name="nombre"
+                                                                                id="txtnombre_inventario"
+                                                                                class="form-control"
+                                                                                data-toggle="tooltip"
+                                                                                data-placement="bottom"
+                                                                                title="Nombres del objeto"
+                                                                                placeholder="Gaseosa ..."
+                                                                                onkeyup="mayus(this);"
+                                                                                value="{{NOMBRE}}" autocomplete="off"
+                                                                                required autofocus>
+                                                                        </div>
+
+                                                                        <div
+                                                                            class="form-group col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                                                                            <label for="txtprecio_inventario"
+                                                                                class="col-form-label">Precio $</label>
+                                                                            <input type="number" name="precio"
+                                                                                id="txtprecio_inventario"
+                                                                                class="form-control"
+                                                                                data-toggle="tooltip"
+                                                                                data-placement="bottom" title="Precio"
+                                                                                placeholder="4500" value="{{PRECIO}}"
+                                                                                autocomplete="off" required>
+                                                                        </div>
+
+                                                                        <div
+                                                                            class="form-group col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                                                                            <label for="txtestado_inventario"
+                                                                                class="col-form-label">Estado</label>
+                                                                            <input type="text" name="estado"
+                                                                                id="txtestado_inventario"
+                                                                                list="crud_Estado_Invetario"
+                                                                                class="form-control"
+                                                                                data-toggle="tooltip"
+                                                                                data-placement="bottom"
+                                                                                title="Estado Actual Inventario"
+                                                                                value="{{ESTADO}}" placeholder="Activo"
+                                                                                autocomplete="off" required>
+                                                                        </div>
+
+                                                                        <div
+                                                                            class="form-group col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                                                                            <label for="txtubicacion_inventario"
+                                                                                class="col-form-label">Ubicacion</label>
+                                                                            <input type="text" name="ubicacion"
+                                                                                id="txtubicacion_inventario"
+                                                                                list="crud_Ubicaciones"
+                                                                                class="form-control"
+                                                                                data-toggle="tooltip"
+                                                                                data-placement="bottom"
+                                                                                title="Ubicacion" value="{{UBICACION}}"
+                                                                                placeholder="Suba" required>
+                                                                        </div>
+
+                                                                    </div>
+                                                                    <center>
+                                                                        <button type="submit" name="action"
+                                                                            class="btn btn-success btn-rounded waves-effect waves-light">
+                                                                            <span class="btn-label"><i
+                                                                                    class="fas fa-database"></i></span>
+                                                                            Actualizar Objeto
+                                                                        </button>
+                                                                    </center>
+                                                                </form>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-secondary"
+                                                                    data-dismiss="modal">Cerrar</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                {{!-- Fin Modal Crud Actualizar Usuarios--}}
+                                            </td>
+                                            <td>
+                                                <center>{{CANTIDAD}}</center>
+                                            </td>
+                                            <td>
+                                                <center>{{NOMBRE}}</center>
+                                            </td>
+                                            <td>
+                                                <center>{{PRECIO}}</center>
+                                            </td>
+                                            <td>
+                                                <center>{{ESTADO}}</center>
+                                            </td>
+                                            <td>
+                                                {{UBICACION}}
+                                            </td>
+                                            <td>
+                                                {{USU_FECHA_REGISTRO}}
+                                            </td>
+                                            <td>
+                                                {{USU_FECHA_MODIFICACION}}
+                                            </td>
+                                        </tr>
+                                        {{/each}}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="js/ControllerInventario.js"></script>

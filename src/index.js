@@ -58,13 +58,17 @@ app.use((req, res, next) => {
 });
 
 global.array = [];
-global.bdd_name = "dbp_virtualavaya";
+global.bdd_name = "dbp_bar";
 
 //Routes..................................
 app.use(require("./routes"));
 app.use(require("./routes/authentication"));
 app.use(require("./routes/crud"));
 app.use(require("./routes/roles"));
+app.use(require("./routes/ModeloInventario"));
+app.use(require("./routes/ModeloVentas"));
+app.use(require("./routes/ModeloHistorialVentas"));
+app.use(require("./routes/ModeloAprobarVenta"));
 //Public..................................
 app.use(express.static(path.join(__dirname, "public")));
 

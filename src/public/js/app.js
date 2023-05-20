@@ -518,3 +518,38 @@
 
 // // Detengo Loader para todas las Vistas (ง︡'-'︠)ง
 // document.getElementById('containerLoader').classList.add('hidden');
+
+// * getData -> Peticiones Fetch GET - Recibe como parametro una ruta Ej: "/prueba"
+const getData = async (route) => {
+    try {
+      let res = await fetch(route);
+      let json = await res.json();
+      if (!res.ok) throw { status: res.status, statusText: res.statusText };
+      return json;
+    } catch (err) {
+      console.error(err);
+      Toast.fire({
+        icon: "error",
+        title: `Error en getData(): ${(err.status, err.statusText)}`,
+      });
+    }
+  };
+  
+  // * postData -> Peticiones Fetch POST - Recibe como parametro una ruta y un JSON Ej: "/prueba", {x:1,y:2}
+  const postData = async (route, data = {}) => {
+    try {
+      let res = await fetch(route, {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      let json = await res.json();
+  
+      if (!res.ok) throw { status: res.status, statusText: res.statusText };
+      return json;
+    } catch (err) {
+      console.log(err);
+    }
+  };

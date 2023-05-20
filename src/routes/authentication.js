@@ -23,7 +23,7 @@ router.get("/Login", isNotLoggedIn, (req, res) => {
 });
 
 router.post("/Login", (req, res, next) => {
-  console.log("LOGINNNNNN")
+  console.log("LOGINNNNNN");
   passport.authenticate("local.Login", {
     successRedirect: "/estado",
     failureRedirect: "/Login",
@@ -33,7 +33,7 @@ router.post("/Login", (req, res, next) => {
 
 /* Vista Estado Usuario - Roles js */
 router.get("/estado", (req, res, next) => {
-  console.log("LOGINNNNNNN")
+  console.log("LOGINNNNNNN");
   try {
     if (req.user.USU_ESTADO === "Activo") {
       res.redirect("/redirect");
@@ -56,10 +56,10 @@ router.get("/estado", (req, res, next) => {
 /* Vista Area Gestión - Roles js */
 router.get("/redirect", isLoggedIn, (req, res, next) => {
   try {
-    if (req.user.USU_ROL == "Agente") {
-      res.redirect("/gestionAsesor");
-    } else if (req.user.USU_ROL == "Supervisor") {
-      res.redirect("/reportingSupervisor");
+    if (req.user.USU_ROL == "Cajero") {
+      res.redirect("/ValidarVentas");
+    } else if (req.user.USU_ROL == "Mesero") {
+      res.redirect("/Ventas");
     } else if (req.user.USU_ROL == "Administrador") {
       res.redirect("/adminusuariosAdmin");
     } else {

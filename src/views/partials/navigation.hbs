@@ -17,16 +17,16 @@
                 menuAdministrador.forEach(element => {
                     element.classList.remove('d-none');
                 });
-            } else if (permisosMenu === "Agente") {
-                const menuAgente = document.querySelectorAll('.menuAgente');
-                //console.log(menuAgente.length);
-                menuAgente.forEach(element => {
+            } else if (permisosMenu === "Cajero") {
+                const menuCajero = document.querySelectorAll('.menuCajero');
+                //console.log(menuCajero.length);
+                menuCajero.forEach(element => {
                     element.classList.remove('d-none');
                 });
-            } else if (permisosMenu === "Supervisor") {
-                const menuSupervisor = document.querySelectorAll('.menuSupervisor');
-                //console.log(menuSupervisor.length);
-                menuSupervisor.forEach(element => {
+            } else if (permisosMenu === "Mesero") {
+                const menuMesero = document.querySelectorAll('.menuMesero');
+                //console.log(menuMesero.length);
+                menuMesero.forEach(element => {
                     element.classList.remove('d-none');
                 });
             }
@@ -111,8 +111,7 @@
 
 
 {{!-- ========= Menú ========== --}}
-<div class="left-side-menu">
-    <div class="d-none" id="areaGestion">{{user.USU_ROL}}</div>
+<div class="left-side-menu">    
     <div class="d-none" id="rolUusario">{{user.USU_ROL}}</div>
     <div class="d-none" id="estadoUsuario">{{user.USU_ESTADO}}</div>
     <div class="d-none" id="nombreUsuario">{{user.USU_NOMBRES_APELLIDOS}}</div>
@@ -133,49 +132,76 @@
                             <a href="/adminusuariosAdmin">Admin. Usuarios</a>
                         </li>
                     </ul>
+                    <ul class="nav-second-level nav" aria-expanded="false">
+                        <li>
+                            <a href="/Inventario">Inventario</a>
+                        </li>
+                    </ul>
+                    <ul class="nav-second-level nav" aria-expanded="false">
+                        <li>
+                            <a href="/Ventas">Ventas</a>
+                        </li>
+                    </ul>
+                    <ul class="nav-second-level nav" aria-expanded="false">
+                        <li>
+                            <a href="/HistorialVenta">Historial de Ventas</a>
+                        </li>
+                    </ul>                    
                 </li>
 
-                {{!-- <li class="d-none menuAdministrador menuAgente">
+                <li class="d-none menuAdministrador menuMesero">
                     <a href="javascript: void(0);">
                         <i class="fas fa-headset"></i>
-                        <span> Gestion Asesor </span>
+                        <span> Gestion Mesero </span>
                         <span class="menu-arrow"></span>
                     </a>
-                    <ul class="nav-second-level" aria-expanded="false">
-                        <li>
-                            <a href="/gestionAsesor">Gestion</a>
-                        </li>
 
+                    <ul class="nav-second-level nav" aria-expanded="false">
+                        <li>
+                            <a href="/Ventas">Ventas</a>
+                        </li>
                     </ul>
+
+                    <ul class="nav-second-level nav" aria-expanded="false">
+                        <li>
+                            <a href="/HistorialVenta">Historial de Ventas</a>
+                        </li>
+                    </ul>       
+
+                    <ul class="nav-second-level nav" aria-expanded="false">
+                        <li>
+                            <a href="/Inventario">Inventario</a>
+                        </li>
+                    </ul>  
+                    
                 </li>
 
-                <li class="d-none menuAdministrador menuSupervisor">
+                <li class="d-none menuAdministrador menuCajero">
                     <a href="javascript: void(0);">
                         <i class="bi bi-clipboard2-data"></i>
-                        <span> Gestion Supervisor </span>
+                        <span> Gestion Cajero </span>
                         <span class="menu-arrow"></span>
                     </a>
-                    <ul class="nav-second-level" aria-expanded="false">
-                        <li>
-                            <a href="/reportingSupervisor">Gestion</a>
-                        </li>
-                    </ul>
-                    <ul class="nav-second-level" aria-expanded="false">
-                        <li>
-                            <a href="/cargueHorarios">Carga de Horarios</a>
-                        </li>
-                    </ul>
+
                     <ul class="nav-second-level nav" aria-expanded="false">
                         <li>
-                            <a href="/modificarHorarios">Modificar Horarios</a>
+                            <a href="/ValidarVentas">Validar Ventas</a>
                         </li>
-                    </ul>
+                    </ul>   
+
                     <ul class="nav-second-level nav" aria-expanded="false">
                         <li>
-                            <a href="/adminusuarios">Admin. Usuarios</a>
+                            <a href="/Ventas">Ventas</a>
                         </li>
                     </ul>
-                </li> --}}
+
+                    <ul class="nav-second-level nav" aria-expanded="false">
+                        <li>
+                            <a href="/HistorialVenta">Historial de Ventas</a>
+                        </li>
+                    </ul>         
+                    
+                </li> 
                 {{!-- ACA VAN LAS OPCIONES --}}
 
             </ul>

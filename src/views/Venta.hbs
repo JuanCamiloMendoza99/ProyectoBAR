@@ -1,0 +1,60 @@
+<head>
+
+    <title>Venta</title>
+
+</head>
+<div class="content content-page">
+    <div class="container-fluid">
+        <div class="d-none" id="rolUusario">{{user.USU_ROL}}</div>
+        <div class="d-none" id="estadoUsuario">{{user.USU_ESTADO}}</div>
+        <div class="d-none" id="nombreUsuario">{{user.USU_NOMBRES_APELLIDOS}}</div>
+        <div class="d-none" id="sede">{{user.USU_SEDE}}</div>
+        {{!-- Titulo pagina --}}
+        <div class="row">
+            <div class="col-12">
+                <div class="page-title-box">
+                    <h4 class="page-title">Venta1</h4>
+                    {{> message }}
+                </div>
+            </div>
+        </div>
+
+        {{!-- Formulario Front Negocios --}}
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="container">
+                            <div class="row">
+                                <!-- Elementos generados a partir del JSON -->
+                                <main id="items" class="col-sm-8 row"></main>
+                                <!-- Carrito -->
+                                <aside class="col-sm-4">
+                                    <h2>Carrito</h2>
+                                    <!-- Elementos del carrito -->
+                                    <ul id="carrito" class="list-group"></ul>
+                                    <hr>
+                                    <!-- Precio total -->
+                                    <p class="text-right">Total: <span id="total"></span>$</p>
+                                    <button id="boton-vaciar" class="btn btn-danger">Vaciar Carrito</button>
+                                    <select class="custom-select form-select-lg" name="Mesa" id="Mesa">
+                                        <option selected value="">Escoja una Mesa</option>
+                                        {{#each listaMesas}}
+                                        <option value="{{MESA}}">{{MESA}}</option>
+                                        {{/each}}
+                                    </select>
+                                    <button class="btn btn-danger" id="botonPagar">PAGAR</button>
+                                </aside>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+<script src="js/ControllerVentas.js"></script>

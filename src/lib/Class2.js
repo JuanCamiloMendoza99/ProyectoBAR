@@ -1,9 +1,3 @@
-const express = require("express");
-const router = express.Router();
-const pool = require("../database");
-const { isLoggedIn } = require("../lib/auth");
-// const class2 = require("../lib/Class2'");
-
 var a = "ValorEnCrypt";
 var jxiautqolv_xsayswkevevbrpaix = "Comprobar";
 var __zw_okpqq_cbc_t_ttjqzq_igdfqhmkyotli = "Comprobar2";
@@ -256,97 +250,6 @@ function DeCrypt(b) {
     return yghtwtfudbbqfjmagy_lbjnr_gjgkljp_ly;
   }
 }
-/* Registro Usuario */
-router.get("/adminusuariosAdmin", isLoggedIn, async (req, res) => {
-  try {
-    if (req.user.USU_ROL == "Administrador") {
-      const users = await pool.query("SELECT * FROM users");
-      res.render("crud/adminusuarios", { users });
-    } else {
-      res.redirect("/redirect");
-    }
-  } catch (error) {
-    res.render("401");
-  }
-});
 
-/* Registro Usuario */
-router.get("/adminusuarios", isLoggedIn, async (req, res) => {
-  try {
-    if (
-      req.user.USU_ROL == "Administrador" ||
-      req.user.USU_ROL == "Supervisor"
-    ) {
-      const users = await pool.query("SELECT * FROM users");
-      res.render("reportingSupervisor/adminusuarios", { users });
-    } else {
-      res.redirect("/redirect");
-    }
-  } catch (error) {
-    res.render("401");
-  }
-});
-
-router.post("/adminusuarios", async (req, res) => {
-  const {
-    documento,
-    nombres_apellidos,
-    usuario,
-    rol,
-    password,
-    sede,
-    estado_usuario,
-    responsable_gestion,
-  } = req.body;
-
-  console.log(EnCrypt(password));
-
-  console.log(req.body);
-  const newUser = {
-    USU_DOCUMENTO: documento,
-    USU_NOMBRES_APELLIDOS: nombres_apellidos,
-    USU_USUARIO: usuario,
-    USU_ROL: rol,
-    USU_SEDE: sede,
-    USU_ESTADO: estado_usuario,
-    USU_RESPONSABLE_GESTION: responsable_gestion,
-    USU_PASSWORD: EnCrypt(password),
-  };
-  console.log(newUser);
-  await pool.query("INSERT INTO users set ?", [newUser]);
-  req.flash("success", "Usuario Registrado Correctamente!!!");
-  res.redirect("/adminusuariosAdmin");
-});
-
-/* Modificar Usuario */
-router.post("/adminusuarios/:id", async (req, res) => {
-  const { id } = req.params;
-  const {
-    documento,
-    nombres_apellidos,
-    usuario,
-    rol,
-    password,
-    sede,
-    estado_usuario,
-  } = req.body;
-  console.log(req.body);
-
-  const responsable_gestion = req.user.USU_NOMBRES_APELLIDOS;
-  const newUser = {
-    USU_DOCUMENTO: documento,
-    USU_NOMBRES_APELLIDOS: nombres_apellidos,
-    USU_USUARIO: usuario,
-    USU_ROL: rol,
-    USU_PASSWORD: EnCrypt(password),
-    USU_SEDE: sede,
-    USU_ESTADO: estado_usuario,
-    USU_RESPONSABLE_GESTION: responsable_gestion,
-  };
-  console.log(newUser);
-  await pool.query("UPDATE users set ? WHERE USU_PK_ID = ?", [newUser, [id]]);
-  req.flash("success", "Usuario Actualizado Correctamente!!!");
-  res.redirect("/adminusuariosAdmin");
-});
-
-module.exports = router;
+module.exports.EnCrypt = EnCrypt;
+module.exports.DeCrypt = DeCrypt;
